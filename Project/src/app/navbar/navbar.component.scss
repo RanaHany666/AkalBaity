@@ -1,0 +1,48 @@
+.navbar{
+    font-size: 16px;
+    padding: 2px 50px;
+}
+#navbarNavAltMarkup{
+
+    flex-direction: row-reverse
+}
+.navbar-nav{
+    align-items: center;
+}
+.signup{
+    background-color: #fff3cd;
+    padding: 10px 20px;
+    color: #343a40;
+    border: solid 1px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+.signup :hover{
+    background-color: rgb(49, 181, 221,0.15);
+}
+
+.cart-icon
+{
+    position: relative;
+}
+.cart_icon i
+{   
+    font-size: 30px;
+    color:white;
+    position:absolute;
+    top: 35px;;
+    left:70px;
+}
+.cart_value
+{
+    position:absolute;
+    top: 5px;
+    right:35px;
+    background-color: #45b6d3;
+    border-radius:50%;
+    padding:3px 9px;
+    font-weight:800;
+    font-size:  12px;
+    color: white;
+}

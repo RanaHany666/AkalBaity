@@ -1,0 +1,89 @@
+<div class="wrapper ">
+  <div id="formContent">
+    <h2 class="inactive" routerLink='/dashboard' routerLinkActive='active'>Add to Procuts</h2>
+    <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
+            
+      <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="productService.selectedProduct._id">
+      <div class="row">
+          <label>Name :
+              <label class="red-text">*</label>
+            </label>
+        <div class="input-field col s6">
+          <input type="text" name="name" #name="ngModel" [(ngModel)]="productService.selectedProduct.name"  required>
+         
+        </div>
+      </div>
+      <div class="row">
+          <label>Price :</label>
+
+        <div class="input-field col s6">
+          <input type="text" name="price" #name="ngModel" [(ngModel)]="productService.selectedProduct.price"  required >
+        </div>
+      </div>
+      <div class="row">
+          <label>Description :</label>
+        <div class="input-field col s6">
+          <input type="text" name="description" #name="ngModel" [(ngModel)]="productService.selectedProduct.description"   required>
+         
+        </div>
+        <label>category :</label>
+        <div class="input-field col s6">
+          <input type="text" name="category" #name="ngModel" [(ngModel)]="productService.selectedProduct.category"   required>
+         
+        </div>
+        <label>image :</label>
+        <div class="input-field col s6">
+          <input type="text" name="image" #name="ngModel" [(ngModel)]="productService.selectedProduct.image"   required>
+         
+        </div>
+      </div>
+   
+      <div class="row">
+        <div class="input-field col s12">
+        <button class="btn btn-primary " type="button" (click)="resetForm(productForm)" >Reset</button> 
+       <button class="btn btn-primary ml-5 " type="submit" [disabled]="!productForm.valid">Submit</button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Success message -->
+    <div class="success" *ngIf="showSucessMessage">
+      Saved successfully
+    </div>
+          
+    <!-- Error message -->
+    <div class="alert" *ngIf="serverErrorMessages">
+      {{serverErrorMessages}}
+    </div>
+
+    </div>
+</div>
+
+<table class="table table-bordered" style="border: 1px white; border-radius: 50px; width: 50%; margin: auto; padding: 5px;">
+<thead style="background-color: white; border: 1px white; " >
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Edit </th>
+    <th>Delete </th>
+  </tr>
+</thead>
+<tbody style="background-color: rgb(251, 251, 251); border: 1px white; color: rgb(149, 149, 149);" >
+  <tr *ngFor="let item of productService.Products">
+    <td>{{item.name}}</td>
+    <td>{{item.price}}</td>
+    <td>{{item.description}}</td>
+    <td>
+        <a class="action-btn" (click)="onEdit(item)">
+          <i class="fa-solid fa-pen-to-square" style="color: rgb(216, 128, 14);"></i>
+        </a>
+      </td>
+        <td> 
+        <a class="action-btn" (click)="onDelete(item._id,productForm)">
+          <i class="fa-solid fa-circle-minus" style="color: Tomato;"></i>
+        </a>
+      </td>
+  </tr>
+</tbody>
+</table>

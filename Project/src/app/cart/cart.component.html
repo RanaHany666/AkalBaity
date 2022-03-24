@@ -1,0 +1,77 @@
+<div class="allcart">
+    <ng-container *ngIf="products.length != 0">
+      
+      <div class="container">
+      <div class="row ">
+        <div class="card-table  ">
+          <div class="cart-product  ">
+            <table class="table table-responsive ">
+              <thead>
+                <tr>
+                  <th style="color:black">Sr.No</th>
+                  <th style="color:black">Product Name</th>
+                  <th style=" color: black;">Product Image</th>
+    
+                  <th style="color:black;">Price</th>
+                  <th style="color:black">Quantity</th>
+                  <th style="color:black">Total</th>
+                  <th style="color:black">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of products; let i = index">
+                  <td style="  color:black;">{{ i + 1 }}</td>
+                  <td style=" color: #913e3e;">{{ item.name }}</td>
+                  <td>
+                    <img style="width: 120px;border-radius: 30%;" src="{{ item.image }}" alt="" />
+                  </td>
+    
+                  <th style="width: 12% ;  color: #913e3e;">{{ item.price }}</th>
+                  <th style="width:12% ;color: #913e3e;">
+                     <button  style="width:20% " (click)="plu()">+</button> &nbsp; 
+                    <span  style="width:20% ">{{counter}}</span> &nbsp;
+                     <button style="width:20% "  (click)="inc()">-</button>  
+                   
+                  <td style="width: 12%;  color: #913e3e;"> ${{ counter *item.price}}</td>
+                  <td>
+                    <button (click)="removeItem(item)" class="btn btn-danger">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="4"></td>
+                  <td>
+                    <button  class="mebtn" (click)="emptycart()" class="btn btn-danger">
+                      Empty Cart
+                    </button>
+                  </td>
+                  <td>
+                    <button  class="mebtn" routerLink="/menu" class="btn btn-warning">
+                      Shop More
+                    </button>
+                  </td>
+                  <td><button  class="mebtn" routerLink="/checkout" class="btn btn-warning">Checkout</button></td>
+                  <td>
+                    <strong style="color:black">Grand Total : ${{ grandTotal*counter }}</strong>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      </div>
+      
+    </ng-container>
+    
+    <ng-container *ngIf="products.length == 0">
+      <div class="container">
+        <div class="center">
+          <h6 style="color:rgb(219, 219, 219)">Card  is empty</h6>
+        </div>
+      </div>
+    </ng-container>
+    </div>
+    
+    

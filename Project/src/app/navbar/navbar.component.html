@@ -1,0 +1,18 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: #ed9a0c;">
+  <a class="navbar-brand" routerLink="/home">Home</a>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="/product" >Products</a>
+      <a class="nav-item nav-link" routerLink="/login">Log in</a>
+      <a class="nav-item nav-link" routerLink="/signup">Sign Up</a>
+      <a class="nav-item nav-link" routerLink="/dashboard">Dashboard</a>
+      <a class="nav-item nav-link" routerLink="/userprofile">Profile</a>
+    
+      <div>
+        <span routerLink="/cart" style="color: #fff3cd;"><i class="fa-solid fa-bag-shopping fa-lg"></i></span>
+        <span class="cart_value"> {{totalItem}} </span>
+      </div>
+
+    </div>
+  </div>
+</nav>
